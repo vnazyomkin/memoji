@@ -1,0 +1,221 @@
+body{
+	margin: 0;
+	background: #CFD0CF;
+	font-family: 'Arial',  sans-serif;
+	font-weight: bold;
+	color: #434344;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cont1200 {
+	margin: 0 auto;
+	max-width: 1200px;
+	min-width: 600px;
+	min-height: 100vh;
+	max-height: auto;
+}
+h1{	
+	margin: 0;
+	padding: 40px 0;
+	font-size: 42px;
+	line-height: 47px;
+	text-align: center;
+}
+
+ul{
+	list-style-type: none;
+}
+.cards{
+	width: 595px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-rows: 130px 130px 130px 130px;
+	grid-template-rows: 130px 130px 130px;
+	grid-gap: 25px;
+	perspective: 600px;
+	transform-style: preserve-3d;
+}
+
+ .cards :nth-child(4n+1):not(div){
+ 	grid-column: 1/2;
+ }
+
+ .cards :nth-child(4n+2):not(div){
+ 	grid-column: 2/3;
+ }
+
+  .cards :nth-child(4n+3):not(div){
+ 	grid-column: 3/4;
+ }
+
+   .cards :nth-child(4n):not(div){
+ 	grid-column: 4/5;
+ }
+
+.card{
+	cursor: pointer;
+	position: relative;
+	background: white;
+	padding: 5px;
+	border-radius: 9px;
+	box-shadow: 1px 1px 5px rgba(1,1,1,0.5);
+	transform-style: preserve-3d;
+	perspective: 600px;
+	transform: rotateY(0deg);
+	transition-duration: .5s;
+
+
+}
+.card-back{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 9px;
+	background: linear-gradient(to top right, #22AB93, #19668D);
+}
+
+
+.card-front{
+	position: absolute;
+	font-size: 75px;
+	height: 130px;
+	width: 130px;
+	border-radius: 9px;
+	margin: -125px -5px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: white;
+	backface-visibility: hidden;
+}
+
+.timer{
+	line-height: 36px;
+	font-size: 32px;
+	margin: 30px auto 0;
+	text-align: center;
+}
+
+.flip{
+	transform: rotateY(180deg);
+	transition-duration: .5s;
+}
+
+.green{
+	background: #5AD66F;
+}
+.red{
+	background: #F44336;
+}
+
+.flip-fixed{
+	transform: rotateY(180deg);
+	cursor: auto;
+
+}
+
+.card-front, .again{            /**
+             * Для эксплорера
+             */
+            -ms-user-select: none;
+
+            /**
+             * Для мозилы
+             */
+            -moz-user-select: none;
+
+            /**
+             * Для конкверора
+             */
+            -khtml-user-select: none;
+
+            /**
+             * Для Сафари и Хрома
+             */
+            -webkit-user-select: none;
+}
+
+.background{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: .5;
+	z-index: 1;
+	display: none;
+}
+
+.window{
+	position: fixed;
+	min-width: 350px;
+	max-width: 50%;
+	background: white;
+	padding: 30px 50px;
+	z-index: 2;
+	display: none;
+/*	display: flex;*/
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 0;
+}
+
+.end{
+	font-size: 48px;
+	text-align: center;
+	margin: 0 auto;
+	display: flex;
+
+}
+
+.again{
+	margin: 40px auto 0;
+	padding: 10px 20px;
+	background: linear-gradient(to top right, #22AB93, #19668D);
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	border-radius: 9px;
+	box-shadow:  1px 1px 1px rgba(1,1,1,0.5);
+	cursor: pointer;
+}
+
+.again:active{
+	box-shadow: inset 2px 1px 8px rgba(1,1,1,0.5);
+}
+
+.win, .lose{
+	display: flex;
+}
+
+.animation{
+	animation-name: letters;
+	/*transform-origin: bottom bottom;*/
+	animation-duration: .6s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+}
+
+div.end :nth-of-type(4n+2){
+	animation-delay: .1s;
+}
+
+div.end :nth-of-type(4n+3){
+	animation-delay: .2s;
+}
+
+div.end :nth-of-type(4n){
+	animation-delay: .4s;
+}
+
+@keyframes letters{
+	0%{
+		transform-origin: bottom;
+		transform: scale(1, 1.5);
+
+	}
+	100%{
+		transform-origin: bottom;
+		transform: scale(1, .8);
+	}
+}
